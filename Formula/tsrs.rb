@@ -10,10 +10,10 @@ class Tsrs < Formula
     strategy :github_latest
   end
 
-  depends_on "cmake" => :build
-  depends_on "go" => :build
-  depends_on "rust" => :build
-  depends_on "vite-plus" => :build
+  depends_on "cmake" => [:build, :test]
+  depends_on "go" => [:build, :test]
+  depends_on "rust" => [:build, :test]
+  depends_on "vite-plus" => [:build, :test, :optional]
 
   def install
     # The repo root is a virtual workspace; the `tsrs` binary lives in the tsrs_cli crate.
