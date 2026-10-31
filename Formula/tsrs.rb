@@ -17,7 +17,7 @@ class Tsrs < Formula
 
   def install
     # The repo root is a virtual workspace; the `tsrs` binary lives in the tsrs_cli crate.
-    system "cargo", "install", *std_cargo_args(path: "crates/tsrs_cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/tsrs_cli"), "--verbose"
   end
 
   test do
