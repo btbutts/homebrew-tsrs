@@ -12,14 +12,9 @@ class Tsrs < Formula
 
   depends_on "rust" => :build
 
-  def fetch
-    system "cargo", "fetch", *std_cargo_fetch_args
-  end
-
   def install
-    # Remove unrecognized options if they cause configure to fail
-    # https://docs.brew.sh/rubydoc/Formula.html#std_configure_args-instance_method
-    system "cargo", "install", *std_cargo_args, "--verbose"
+    # The repo root is a virtual workspace; the `tsrs` binary lives in the tsrs_cli crate.
+    system "cargo", "install", *std_cargo_args(path: "crates/tsrs_cli")
   end
 
   test do
