@@ -17,7 +17,10 @@ class Tsrs < Formula
 
   def install
     # The repo root is a virtual workspace; the `tsrs` binary lives in the tsrs_cli crate.
-    system "cargo", "install", *std_cargo_args(path: "crates/tsrs_cli"), "--verbose"
+    # Homebrew pipes cargo's output, so cargo hides its progress bar; force it on.
+    ENV["CARGO_TERM_PROGRESS_WHEN"] = "always"
+    ENV["CARGO_TERM_PROGRESS_WIDTH"] = "80"
+    system "cargo", "install", *std_cargo_args(path: "crates/tsrs_cli")
   end
 
   test do
