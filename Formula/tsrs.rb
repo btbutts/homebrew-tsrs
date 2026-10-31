@@ -1,9 +1,9 @@
-class Oxvelte < Formula
-  desc "ESLint-compatible Svelte linter written in Rust. Same rules/diags, 4-25x faster"
-  homepage "https://github.com/btbutts/oxvelte-rs"
-  url "https://github.com/btbutts/oxvelte-rs/releases/download/v0.4.0/oxvelte-0.4.0.tar.gz"
-  sha256 "e1b9f0ec48f2a856099db84ee10d5b67bd3fc4264c89fb2921c2c6847a821631"
-  license "MIT"
+class Tsrs < Formula
+  desc "Rust port of the TypeScript 7 type checker"
+  homepage "https://github.com/oxc-project/tsrs"
+  url "https://github.com/oxc-project/tsrs/archive/refs/tags/v0.20.1.tar.gz"
+  sha256 "4152361791d4019dc18eb9dee85f5905679b2d4a2fe030faebc23eddd80953a7"
+  license "Apache-2.0"
 
   livecheck do
     url :stable
@@ -31,6 +31,6 @@ class Oxvelte < Formula
     #
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system bin/"program", "do", "something"`.
-    assert_match "oxvelte", shell_output("#{bin}/oxvelte --help")
+    assert_match "tsrs", shell_output("#{bin}/tsrs --help")
   end
 end
